@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@graphql-tools/schema": "^10.0.3",
+    "apollo-server-express": "^3.13.0",
+    "graphql": "^16.8.1",
+    "graphql-subscriptions": "^2.0.0",
+    "mongoose": "^8.2.0",
+    "subscriptions-transport-ws": "^0.11.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.1",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx --watch --conditions=development index.ts",
+    "start": "node build/index.js"
+  }
+}

@@ -1,0 +1,68 @@
+.celebrity-card {
+  @apply relative w-[300px] h-[300px];
+}
+
+.celebrity-card__image {
+  @apply absolute top-0;
+}
+
+.celebrity-card__shadow {
+  @apply absolute bottom-0 left-0 right-0 h-[215px];
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.celebrity-card__content {
+  @apply relative flex flex-col z-10 pt-[85px] pl-9 pr-9;
+}
+
+.celebrity-card__head {
+  @apply relative mb-2;
+}
+
+.celebrity-card__head-icon {
+  @apply flex justify-center items-center w-[30px] h-[30px] ml-[-32px];
+}
+
+.celebrity-card__head-icon--positive {
+  @apply bg-green-thumb;
+}
+
+.celebrity-card__head-icon--negative {
+  @apply bg-yellow-thumb;
+}
+
+.celebrity-card__head-icon > img {
+  @apply w-4 h-4;
+}
+
+.celebrity-card__head-name {
+  @apply absolute bottom-0 text-4xl text-white;
+}
+
+.celebrity-card__description {
+  @apply text-[15px] text-white leading-[18px] h-10 text-ellipsis overflow-hidden;
+}
+
+.celebrity-card__category {
+  @apply text-xs text-white text-right mt-4;
+}
+
+.celebrity-card__voting {
+  @apply flex self-end mt-4;
+}
+
+.celebrity-card__voting-button {
+  @apply flex justify-center items-center w-[30px] h-[30px] mr-2;
+}
+
+.celebrity-card__voting-button--positive {
+  @apply bg-green-thumb;
+}
+
+.celebrity-card__voting-button--negative {
+  @apply bg-yellow-thumb;
+}
+
+.celebrity-card__voting-vote {
+  @apply text-white border-[1px] border-white px-3;
+}

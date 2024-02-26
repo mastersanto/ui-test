@@ -2,16 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
+
+/* Breakpoints defined in Tailwind config
+sm = min-width: 375px
+md = min-width: 768px
+lg = min-width: 1100px
+*/
+
+:root {
+  --color-green-positive: 60, 187, 180;
+  --color-yellow-negative: 249, 173, 29;
+  --color-dark-background: rgba(0, 0, 0, .4);
+  --color-darker-background: rgba(0, 0, 0, .6);
+  --color-darker-gray: rgba(51, 51, 51, 1);
+  --color-dark-gray: rgba(70, 70, 70, 1);
+  --color-light-gray: rgba(235, 235, 235, 1);
+  --color-light-background: rgba(255, 255, 255, .4);
+  --color-lighter-background: rgba(255, 255, 255, .8);
+  --color-white: rgba(255, 255, 255, 1);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html, body {
+  width: 100%;
+  margin: 0;
+  background-color: var(--color-white);
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+body {
+  position: relative;
+}
+
+a, a:visited {
+  color: var(--color-white);
+}
+
+button {
+  font-family: 'Lato', sans-serif;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+@media all and (min-width: 768px) {
+  html, body {
+    font-size: 14px;
+  }
+}
+
+@media all and (min-width: 1100px) {
+  html, body {
+    font-size: 18px;
+  }
 }

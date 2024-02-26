@@ -1,0 +1,27 @@
+.celebrity-card-votes {
+  @apply absolute bottom-0 left-0 flex w-full;
+}
+
+.celebrity-card-votes__result {
+  @apply flex flex-grow py-[7px] px-3 text-white h-9 text-lg items-center;
+}
+
+.celebrity-card-votes__result > img {
+  @apply w-[15px] h-[15px];
+}
+
+.celebrity-card-votes__result--positive {
+  @apply bg-green-thumb;
+}
+
+.celebrity-card-votes__result--positive > img {
+  @apply mr-1;
+}
+
+.celebrity-card-votes__result--negative {
+  @apply bg-yellow-thumb justify-end;
+}
+
+.celebrity-card-votes__result--negative > img {
+  @apply ml-1;
+}
