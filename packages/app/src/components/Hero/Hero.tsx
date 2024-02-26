@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import ResponsiveImage from '../ResponsiveImage/ResponsiveImage';
 import ThumbsUpIcon from '../../assets/img/thumbs-up.svg';
 import ThumbsDownIcon from '../../assets/img/thumbs-down.svg';
-import './Header.css';
+import './Hero.css';
 
-function Header() {
+function Hero() {
   return (
     <header className="hero">
       <ResponsiveImage className='hero__background' srcPath='pope-francis' title='Pope Francis' />
@@ -49,4 +49,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default Hero;
