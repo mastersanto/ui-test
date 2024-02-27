@@ -23,7 +23,7 @@ const resolvers = {
       pubsub.publish('VOTE_POSITIVE_UPDATED', {
         positiveVotes: {
           _id,
-          value: result?.votes?.positive
+          value: (result?.votes?.positive || 0) + 1
         }
       });
       return result;
@@ -36,7 +36,7 @@ const resolvers = {
       pubsub.publish('VOTE_NEGATIVE_UPDATED', {
         negativeVotes: {
           _id,
-          value: result?.votes?.negative
+          value: (result?.votes?.negative || 0) + 1
         }
       });
       return result;
