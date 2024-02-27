@@ -1,7 +1,8 @@
 import { model, Schema } from 'mongoose';
 
 const celebritySchema = new Schema({
-  _id: String,
+  _id: Schema.Types.ObjectId,
+  name: String,
   description: String,
   category: String,
   picture: String,

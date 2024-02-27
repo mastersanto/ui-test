@@ -1,0 +1,20 @@
+.celebrity-card__voting {
+  @apply flex self-end mt-4
+    md:mt-12 md:ml-8 md:self-start;
+}
+
+.celebrity-card__voting-button {
+  @apply flex justify-center items-center w-[30px] h-[30px] mr-2;
+}
+
+.celebrity-card__voting-button--positive {
+  @apply bg-green-thumb;
+}
+
+.celebrity-card__voting-button--negative {
+  @apply bg-yellow-thumb;
+}
+
+.celebrity-card__voting-vote {
+  @apply text-white border-[1px] border-white px-3;
+}

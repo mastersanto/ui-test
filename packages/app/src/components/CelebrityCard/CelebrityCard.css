@@ -1,9 +1,19 @@
 .celebrity-card {
-  @apply relative w-[300px] h-[300px];
+  @apply relative w-[300px] h-[300px] overflow-hidden
+    mb-8 md:w-auto md:h-[142px]
+    lg:h-[170px];
 }
 
 .celebrity-card__image {
-  @apply absolute top-0;
+  @apply absolute top-0 min-w-full
+    md:left-0 md:min-w-0 md:max-h-[142px]
+    lg:max-h-[170px];
+}
+
+.celebrity-card__image > img {
+  @apply min-w-full
+  md:w-auto md:max-h-[142px]
+  lg:max-h-[170px];
 }
 
 .celebrity-card__shadow {
@@ -11,58 +21,45 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.6) 100%);
 }
 
-.celebrity-card__content {
-  @apply relative flex flex-col z-10 pt-[85px] pl-9 pr-9;
+.celebrity-card__icon {
+  @apply absolute flex justify-center items-center w-[30px] h-[30px] top-[96px]
+     md:left-0 md:top-0 md:ml-0;
 }
 
-.celebrity-card__head {
-  @apply relative mb-2;
-}
-
-.celebrity-card__head-icon {
-  @apply flex justify-center items-center w-[30px] h-[30px] ml-[-32px];
-}
-
-.celebrity-card__head-icon--positive {
+.celebrity-card__icon--positive {
   @apply bg-green-thumb;
 }
 
-.celebrity-card__head-icon--negative {
+.celebrity-card__icon--negative {
   @apply bg-yellow-thumb;
 }
 
-.celebrity-card__head-icon > img {
+.celebrity-card__icon > img {
   @apply w-4 h-4;
 }
 
+.celebrity-card__content {
+  @apply relative flex flex-col z-10 pt-[130px] pl-10 pr-9
+    md:flex-row md:pt-2 md:pl-[150px] md:pr-1
+    lg:pl-[200px];
+}
+
+.celebrity-card__head {
+  @apply relative mb-2
+    md:mb-4;
+}
+
 .celebrity-card__head-name {
-  @apply absolute bottom-0 text-4xl text-white;
+  @apply absolute bottom-0 text-4xl text-white
+    md:static md:w-[368px] md:h-10 md:overflow-hidden;
 }
 
 .celebrity-card__description {
-  @apply text-[15px] text-white leading-[18px] h-10 text-ellipsis overflow-hidden;
+  @apply text-[15px] text-white leading-[18px] h-12 text-ellipsis overflow-hidden
+    md:text-sm;
 }
 
 .celebrity-card__category {
-  @apply text-xs text-white text-right mt-4;
-}
-
-.celebrity-card__voting {
-  @apply flex self-end mt-4;
-}
-
-.celebrity-card__voting-button {
-  @apply flex justify-center items-center w-[30px] h-[30px] mr-2;
-}
-
-.celebrity-card__voting-button--positive {
-  @apply bg-green-thumb;
-}
-
-.celebrity-card__voting-button--negative {
-  @apply bg-yellow-thumb;
-}
-
-.celebrity-card__voting-vote {
-  @apply text-white border-[1px] border-white px-3;
+  @apply text-xs text-white text-right mt-4
+    md:absolute md:top-0 md:right-2 md:mt-2;
 }

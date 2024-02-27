@@ -1,0 +1,7 @@
+.celebrity-card-votes__result--negative {
+  @apply bg-yellow-thumb justify-end;
+}
+
+.celebrity-card-votes__result--negative > img {
+  @apply ml-1;
+}

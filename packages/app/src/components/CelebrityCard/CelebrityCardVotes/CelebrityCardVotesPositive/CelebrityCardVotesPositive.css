@@ -1,0 +1,7 @@
+.celebrity-card-votes__result--positive {
+  @apply bg-green-thumb;
+}
+
+.celebrity-card-votes__result--positive > img {
+  @apply mr-1;
+}

@@ -5,20 +5,31 @@
 * Node v20.11.1
 * Yarn
 
-Install dependencies:
+## Install dependencies:
 
 `yarn install`
 
-## API
+## Server
 
-Start api `yarn workspace api start`
+Start server `yarn workspace server dev`
 
-Check swagger docs in: [localhost:3001/api-docs/](http://localhost:3001/api-docs/)
+GraphQL Sandbox: [localhost:4000/graphql](http://localhost:4000/graphql)
 
-# App
+## App
 
 Start app `yarn workspace app start`
 
+App: [localhost:3000](http://localhost:3000)
+
+
+## TODO
+
+* Gauge bar
+* Swicth thumbs icon based on votes
+* Enable 'Vote Now' button and its variants
+* Switch cards view: list or grid
+* Use lastUpdate as a Date value
+* Cosmectics styles
 
 --------------------------------------------------
 

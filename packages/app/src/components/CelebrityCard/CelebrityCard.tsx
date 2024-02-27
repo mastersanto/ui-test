@@ -1,12 +1,13 @@
+import CelebrityCardVoting from './CelebrityCardVoting/CelebrityCardVoting';
 import ResponsiveImage from '../ResponsiveImage/ResponsiveImage';
 import CelebrityCardVotes, { CelebrityCardVotesProps } from './CelebrityCardVotes/CelebrityCardVotes';
-// import ImageCelebrity from '../ImageCelebrity/ImageCelebrity';
 import ThumbsUpIcon from '../../assets/img/thumbs-up.svg';
-import ThumbsDownIcon from '../../assets/img/thumbs-down.svg';
+//import ThumbsDownIcon from '../../assets/img/thumbs-down.svg';
 
 import './CelebrityCard.css';
 
 export interface CelebrityCardProps {
+  _id: String,
   name: String;
   description: String;
   category: String;
@@ -17,6 +18,7 @@ export interface CelebrityCardProps {
 
 function CelebrityCard(props: CelebrityCardProps) {
   const {
+    _id,
     name,
     description,
     category,
@@ -33,27 +35,21 @@ function CelebrityCard(props: CelebrityCardProps) {
         <ResponsiveImage className='' srcPath={celebrityPicture} title={name} />
       </div>
       <div className='celebrity-card__shadow'></div>
-      <div className='celebrity-card__content'>
-        <div className='celebrity-card__head'>
-          <div className='celebrity-card__head-icon celebrity-card__head-icon--positive'>
-            <img src={ThumbsUpIcon} alt='thumbs up' />
-          </div>
-          <h3 className='celebrity-card__head-name'>{name}</h3>
-        </div>
-        <p className='celebrity-card__description'>{description}</p>
-        <p className='celebrity-card__category'>{lastUpdated} ago in {category}</p>
-        <div className='celebrity-card__voting'>
-          <button className='celebrity-card__voting-button celebrity-card__voting-button--positive' aria-label="thumbs up">
-            <img src={ThumbsUpIcon} alt="thumbs up" />
-          </button>
-          <button className='celebrity-card__voting-button celebrity-card__voting-button--negative' aria-label="thumbs down">
-            <img src={ThumbsDownIcon} alt="thumbs down" />
-          </button>
-          <button className='celebrity-card__voting-vote' aria-label="Vote now">Vote Now</button>
-
-        </div>
+      {/* TODO: ThumbsUpIcon || ThumbsUpIcon */}
+      <div className='celebrity-card__icon celebrity-card__icon--positive'>
+        <img src={ThumbsUpIcon} alt='thumbs up' />
       </div>
-      {votes && <CelebrityCardVotes votes={votes} />}
+      <div className='celebrity-card__content'>
+        <div className='celebrity-card__info'>
+          <div className='celebrity-card__head'>
+            <h3 className='celebrity-card__head-name'>{name}</h3>
+          </div>
+          <p className='celebrity-card__description'>{description}</p>
+          <p className='celebrity-card__category'>{lastUpdated} ago in {category}</p>
+        </div>
+        <CelebrityCardVoting _id={_id} />
+      </div>
+      {votes && <CelebrityCardVotes celebrityId={_id} votes={votes} />}
     </div>
   );
 }
