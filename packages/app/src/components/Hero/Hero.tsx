@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import ResponsiveImage from '../ResponsiveImage/ResponsiveImage';
-import ThumbsUpIcon from '../../assets/img/thumbs-up.svg';
-import ThumbsDownIcon from '../../assets/img/thumbs-down.svg';
+import ResponsiveImage from 'components/ResponsiveImage/ResponsiveImage';
+import ThumbsUpIcon from 'assets/img/thumbs-up.svg';
+import ThumbsDownIcon from 'assets/img/thumbs-down.svg';
 import './Hero.css';
 
 function Hero() {

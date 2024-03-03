@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import SearchIcon from '../../assets/img/search.svg';
+import SearchIcon from 'assets/img/search.svg';
 import './Navigation.css';
 
 function Navigation() {

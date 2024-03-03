@@ -24,8 +24,6 @@ App: [localhost:3000](http://localhost:3000)
 
 ## TODO
 
-* Gauge bar
-* Swicth thumbs icon based on votes
 * Enable 'Vote Now' button and its variants
 * Switch cards view: list or grid
 * Use lastUpdate as a Date value

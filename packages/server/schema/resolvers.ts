@@ -1,5 +1,3 @@
-//import { PubSub } from 'graphql-subscriptions';
-import { withFilter } from 'graphql-subscriptions';
 import pubsub from '../pubsub';
 
 import Celebrity from '../models/Celebrity';

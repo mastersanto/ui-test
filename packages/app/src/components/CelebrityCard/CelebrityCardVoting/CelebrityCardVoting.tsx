@@ -1,11 +1,11 @@
 import { gql, useMutation } from '@apollo/client';
-import ThumbsUpIcon from '../../../assets/img/thumbs-up.svg';
-import ThumbsDownIcon from '../../../assets/img/thumbs-down.svg';
+import ThumbsUpIcon from 'assets/img/thumbs-up.svg';
+import ThumbsDownIcon from 'assets/img/thumbs-down.svg';
 
 import './CelebrityCardVoting.css';
 
 export interface CelebrityCardVotingProps {
-  _id: String;
+  _id: string;
 }
 
 const VOTE_POSITIVE = gql`

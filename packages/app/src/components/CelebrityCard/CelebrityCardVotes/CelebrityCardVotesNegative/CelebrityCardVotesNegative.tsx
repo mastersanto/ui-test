@@ -1,39 +1,21 @@
-import { useState } from 'react';
-import { gql, useSubscription } from '@apollo/client';
-
-import ThumbsDownIcon from '../../../../assets/img/thumbs-down.svg';
+import ThumbsDownIcon from 'assets/img/thumbs-down.svg';
 import './CelebrityCardVotesNegative.css';
 
 export interface CelebrityCardVotesNegativeProps {
-  celebrityId: String;
-  negative: Number;
+  percentage: string;
 }
 
-const VOTE_NEGATIVE_UPDATED = gql`
-  subscription VoteNegativeUpdated {
-    negativeVotes {
-      _id
-      value
-    }
-  }
-`;
-
 function CelebrityCardVotesNegative(props: CelebrityCardVotesNegativeProps) {
-  const { celebrityId, negative } = props;
-  const [negativeVotes, setNegativeVotes] = useState(negative);
-
-  useSubscription(VOTE_NEGATIVE_UPDATED, {
-    onData: (subscriptionData) => {
-      const data = subscriptionData?.data?.data?.negativeVotes;
-      if (data._id === celebrityId && data.value) {
-        setNegativeVotes(data.value);
-      }
-    },
-  });  
+  const { percentage } = props; 
 
   return (
-    <div className="celebrity-card-votes__result celebrity-card-votes__result--negative">
-      {`${negativeVotes}`}
+    <div
+      className="celebrity-card-votes__result celebrity-card-votes__result--negative"
+      style={{
+        width: percentage
+      }}
+    >
+      {percentage}
       <img src={ThumbsDownIcon} alt="thumbs down" />
     </div>
   );

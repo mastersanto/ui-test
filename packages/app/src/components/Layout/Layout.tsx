@@ -1,4 +1,4 @@
-import { Navigation, Hero, BannerTop, BannerBottom, Footer } from '../';
+import { Navigation, Hero, BannerTop, BannerBottom, Footer } from 'components';
 import './Layout';
 
 interface LayoutProps {

@@ -1,18 +1,39 @@
+import { useState, useEffect } from 'react';
+import { gql, useSubscription } from '@apollo/client';
+
 import CelebrityCardVoting from './CelebrityCardVoting/CelebrityCardVoting';
-import ResponsiveImage from '../ResponsiveImage/ResponsiveImage';
+import ResponsiveImage from 'components/ResponsiveImage/ResponsiveImage';
 import CelebrityCardVotes, { CelebrityCardVotesProps } from './CelebrityCardVotes/CelebrityCardVotes';
-import ThumbsUpIcon from '../../assets/img/thumbs-up.svg';
-//import ThumbsDownIcon from '../../assets/img/thumbs-down.svg';
+import ThumbsUpIcon from 'assets/img/thumbs-up.svg';
+import ThumbsDownIcon from 'assets/img/thumbs-down.svg';
 
 import './CelebrityCard.css';
 
+const VOTE_POSITIVE_UPDATED = gql`
+  subscription VotePositiveUpdated {
+    positiveVotes {
+      _id
+      value
+    }
+  }
+`;
+
+const VOTE_NEGATIVE_UPDATED = gql`
+  subscription VoteNegativeUpdated {
+    negativeVotes {
+      _id
+      value
+    }
+  }
+`;
+
 export interface CelebrityCardProps {
-  _id: String,
-  name: String;
-  description: String;
-  category: String;
-  picture: String;
-  lastUpdated: String;
+  _id: string,
+  name: string;
+  description: string;
+  category: string;
+  picture: string;
+  lastUpdated: string;
   votes: CelebrityCardVotesProps;
 }
 
@@ -26,8 +47,38 @@ function CelebrityCard(props: CelebrityCardProps) {
     lastUpdated,
     votes
   } = props;
+  const [positiveVotes, setPositiveVotes] = useState(votes.positive);
+  const [negativeVotes, setNegativeVotes] = useState(votes.negative);
+  const [isPopular, setIsPopular] = useState(true);
 
   const celebrityPicture = picture.split('.')[0].replace('.', '');
+
+  useSubscription(VOTE_POSITIVE_UPDATED, {
+    onData: (subscriptionData) => {
+      const data = subscriptionData?.data?.data?.positiveVotes;
+      if (data._id === _id && data.value) {
+        setPositiveVotes(data.value);
+      }
+    },
+  });
+  
+  useSubscription(VOTE_NEGATIVE_UPDATED, {
+    onData: (subscriptionData) => {
+      const data = subscriptionData?.data?.data?.negativeVotes;
+      if (data._id === _id && data.value) {
+        setNegativeVotes(data.value);
+      }
+    },
+  }); 
+
+  useEffect(() => {
+    setIsPopular(positiveVotes >= negativeVotes);
+  },
+  [
+    positiveVotes,
+    negativeVotes,
+    setIsPopular
+  ]);
 
   return (
     <div className='celebrity-card'>
@@ -35,9 +86,11 @@ function CelebrityCard(props: CelebrityCardProps) {
         <ResponsiveImage className='' srcPath={celebrityPicture} title={name} />
       </div>
       <div className='celebrity-card__shadow'></div>
-      {/* TODO: ThumbsUpIcon || ThumbsUpIcon */}
-      <div className='celebrity-card__icon celebrity-card__icon--positive'>
-        <img src={ThumbsUpIcon} alt='thumbs up' />
+      <div className={`celebrity-card__icon celebrity-card__icon--${isPopular ? 'positive' : 'negative'}`}>
+        <img
+          src={isPopular ? ThumbsUpIcon : ThumbsDownIcon}
+          alt={`thumbs ${isPopular ? 'up' : 'down'}`}
+        />
       </div>
       <div className='celebrity-card__content'>
         <div className='celebrity-card__info'>
@@ -49,7 +102,7 @@ function CelebrityCard(props: CelebrityCardProps) {
         </div>
         <CelebrityCardVoting _id={_id} />
       </div>
-      {votes && <CelebrityCardVotes celebrityId={_id} votes={votes} />}
+      {votes && <CelebrityCardVotes positive={positiveVotes} negative={negativeVotes} />}
     </div>
   );
 }

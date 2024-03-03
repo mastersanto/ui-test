@@ -1,6 +1,5 @@
 import { gql, useQuery } from '@apollo/client';
-import { Layout } from '../components';
-import { CelebrityCard } from '../components';
+import { Layout, CelebrityCard } from 'components';
 import type { CelebrityCardProps } from '../components';
 
 import './Home.css';

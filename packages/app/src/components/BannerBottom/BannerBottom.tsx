@@ -1,4 +1,4 @@
-import ResponsiveImage from '../ResponsiveImage/ResponsiveImage';
+import ResponsiveImage from 'components/ResponsiveImage/ResponsiveImage';
 import './BannerBottom.css';
 
 function BannerBottom() {
