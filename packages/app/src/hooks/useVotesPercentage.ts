@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-function useVotesPercentage(positiveVotes: number, negativeVotes: number) { 
+function useVotesPercentage() { 
   const getPercentage = useCallback((positiveVotes: number, negativeVotes: number) => {
     const positivePercentage = (positiveVotes / (positiveVotes + negativeVotes) * 100);
     return {

@@ -18,7 +18,7 @@ function CelebrityCardVotes(props: CelebrityCardVotesProps) {
     negative: ''
   };
   const [percentage, setPercentage] = useState(initPercentage);
-  const getPercentage = useVotesPercentage(positive, negative);
+  const getPercentage = useVotesPercentage();
 
   useEffect(() => {
     const percentage = getPercentage(positive, negative);

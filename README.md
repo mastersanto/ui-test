@@ -26,7 +26,6 @@ App: [localhost:3000](http://localhost:3000)
 
 * Enable 'Vote Now' button and its variants
 * Switch cards view: list or grid
-* Use lastUpdate as a Date value
 * Cosmectics styles
 
 --------------------------------------------------

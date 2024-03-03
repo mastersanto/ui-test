@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { gql, useSubscription } from '@apollo/client';
 
+import useElapsedTime from 'hooks/useElapsedTime';
 import CelebrityCardVoting from './CelebrityCardVoting/CelebrityCardVoting';
 import ResponsiveImage from 'components/ResponsiveImage/ResponsiveImage';
 import CelebrityCardVotes, { CelebrityCardVotesProps } from './CelebrityCardVotes/CelebrityCardVotes';
@@ -50,6 +51,8 @@ function CelebrityCard(props: CelebrityCardProps) {
   const [positiveVotes, setPositiveVotes] = useState(votes.positive);
   const [negativeVotes, setNegativeVotes] = useState(votes.negative);
   const [isPopular, setIsPopular] = useState(true);
+  const [elapsedTime, setElapsedTime] = useState('');
+  const getElapsedTime = useElapsedTime();
 
   const celebrityPicture = picture.split('.')[0].replace('.', '');
 
@@ -80,6 +83,18 @@ function CelebrityCard(props: CelebrityCardProps) {
     setIsPopular
   ]);
 
+  useEffect(() => {
+    const nowDate =  new Date();
+    const fromDate =  new Date(lastUpdated);
+    const elapsedTimeResult = getElapsedTime(nowDate, fromDate);
+    setElapsedTime(elapsedTimeResult);
+  },
+  [
+    lastUpdated,
+    getElapsedTime,
+    setElapsedTime
+  ]);
+
   return (
     <div className='celebrity-card'>
       <div className='celebrity-card__image'>
@@ -98,7 +113,7 @@ function CelebrityCard(props: CelebrityCardProps) {
             <h3 className='celebrity-card__head-name'>{name}</h3>
           </div>
           <p className='celebrity-card__description'>{description}</p>
-          <p className='celebrity-card__category'>{lastUpdated} ago in {category}</p>
+          <p className='celebrity-card__category'>{elapsedTime} ago in {category.charAt(0).toUpperCase() + category.slice(1)}</p>
         </div>
         <CelebrityCardVoting _id={_id} />
       </div>
