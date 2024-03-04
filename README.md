@@ -21,15 +21,13 @@ Start app `yarn workspace app start`
 
 App: [localhost:3000](http://localhost:3000)
 
-
 ## TODO
 
-* Enable 'Vote Now' button and its variants
-* Switch cards view: list or grid
-* Cosmectics styles
+* Enable 'Vote Now' button and its variants, now user is able to vote directly clicking on ThumbsUp/ThumbsDown buttons.
+
+**NOTE:** Different users can open different browsers (even private mode if they want) and the voting count will persist for all of them due to the websocket subscription.
 
 --------------------------------------------------
-
 
 Zemoga Front End Development - Candidate Test v2.1
 ==================================================

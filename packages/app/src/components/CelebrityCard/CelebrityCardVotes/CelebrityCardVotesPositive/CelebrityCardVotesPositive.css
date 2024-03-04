@@ -1,5 +1,5 @@
 .celebrity-card-votes__result--positive {
-  @apply bg-green-thumb;
+  background: rgba(60, 187, 180, 0.6);
 }
 
 .celebrity-card-votes__result--positive > img {

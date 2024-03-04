@@ -1,3 +1,24 @@
-.celebrities-list {
-  @apply grid grid-cols-2 md:grid-cols-none;
+.home-header {
+  @apply md:flex md:flex-wrap md:justify-between;
+}
+
+.home-header__view-options {
+  @apply hidden
+    md:block md:w-[132px] md:h-[28px]
+    md:mt-2
+    md:border md:border-black
+    md:text-center;
+}
+
+.celebrities {
+  @apply flex snap-x gap-4 snap-mandatory w-full overflow-scroll
+    md:snap-none md:flex-col;
+
+  &.celebrities--grid {
+    @apply md:place-content-around
+  }
+}
+
+.celebrities--grid {
+  @apply md:flex-wrap md:flex-row;
 }

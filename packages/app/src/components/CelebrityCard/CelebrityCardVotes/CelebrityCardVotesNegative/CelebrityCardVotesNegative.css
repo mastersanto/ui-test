@@ -1,5 +1,7 @@
 .celebrity-card-votes__result--negative {
-  @apply bg-yellow-thumb justify-end;
+  @apply justify-end;
+  background: rgba(249, 173, 29, 0.6);
+
 }
 
 .celebrity-card-votes__result--negative > img {
